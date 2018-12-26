@@ -1,0 +1,48 @@
+package com.demo.dagger2.test2;
+
+import javax.inject.Named;
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
+
+/**
+ * Module类增加一个Provide注解方法，提供Users2的实例
+ * @author yzh-t105
+ * @time 2018/12/20 14:12
+ */
+@Module
+public class MainModule2 {
+    public MainModule2() {
+    }
+
+//    1.在需要单例模式的对象提供者方法前加上@Singleton注解
+//2.在该module关联的Component中加上同样的注解，否则编译会报错的
+
+    //Singleton 全局单例模式 适用于 application 类、常用的工具类等对象
+    // 普通的对象最好用 @Scope 注解 局部单例模式 (Users2 这里只是演示一下使用)
+    @Singleton//单利模式
+    @Provides
+    Users2 provideUser(){
+        return new Users2();
+    }
+
+
+    
+    //@Named注解使用 相当于有个表示，虽然大家都是同一个对象，但是a1 a2实例化对象不同
+//    A a1 = new A();
+//    A a2 = new A();
+
+    @Named("user_1")
+    @Provides
+    Users2 provideUser1(){
+        return new Users2("111");
+    }
+
+    @Named("user_2")
+    @Provides
+    Users2 provideUser2(){
+        return new Users2("222");
+    }
+
+}

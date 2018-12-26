@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MVP+Rxjava2+Retrofit2+Dagger2</string>
+    <string name="open" translatable="false">打开</string>
+    <string name="close" translatable="false">关闭</string>
+</resources>

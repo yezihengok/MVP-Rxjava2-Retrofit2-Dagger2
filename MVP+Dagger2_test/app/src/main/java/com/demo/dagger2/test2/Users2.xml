@@ -1,0 +1,27 @@
+package com.demo.dagger2.test2;
+
+import javax.inject.Inject;
+
+/**
+ * @author yzh-t105
+ * @time 2018/12/20 12:23
+ */
+public class Users2 {
+    private String str="Users2实例是Provide注解方式注入的";
+
+    //1.去掉Users2类的@Inject注解
+   // @Inject
+    public Users2(){
+    }
+
+    public Users2(String str){
+        this.str=str;
+    }
+    public String getStr() {
+        return str;
+    }
+
+    public void setStr(String str) {
+        this.str = str;
+    }
+}

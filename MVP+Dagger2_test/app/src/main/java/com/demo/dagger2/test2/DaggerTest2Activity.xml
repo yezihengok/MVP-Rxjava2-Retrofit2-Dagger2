@@ -1,0 +1,59 @@
+package com.demo.dagger2.test2;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
+
+import com.demo.mvp.R;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+/**
+ *
+ *
+ * 要注入一个类，可以通过两种方法：
+ *
+ * 1 在Bean类的构造方法上添加@Inject注解
+ * 2 @Module +@Providers注入工厂的方式
+ * @Inject 在需要依赖注入的地方使用，配合注入方法将要注入的对象注入
+ * @Module 用次注解的类，提供@Provides注解的以provide开头的方法，具体提供依赖
+ *
+ *
+ *
+ * @author yzh-t105
+ * @time 2018/12/20 12:25
+ */
+public class DaggerTest2Activity extends AppCompatActivity {
+
+    @Inject
+    Users2 users;// 注入Users实例
+
+    @Inject
+    @Named("user_1")
+    Users2 usera;
+
+    @Inject
+    @Named("user_2")
+    Users2 userb;
+
+    private TextView texts;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dag);
+        this.texts = (TextView) findViewById(R.id.texts);
+
+        //添加依赖关系
+        //第一种方式
+        DaggerMainComponent2.create().inject(this);
+        //第二种方式
+        //DaggerMainComponent2.builder().build().inject(this);
+
+        texts.setText(users.getStr());
+        texts.append("\n"+usera.getStr());
+        texts.append("\n"+userb.getStr());
+    }
+}
