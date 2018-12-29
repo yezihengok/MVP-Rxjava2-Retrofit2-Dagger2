@@ -1,6 +1,6 @@
 # MVP-Rxjava2-Retrofit2-Dagger2
 之前林林总总的学习了一些现在主流框架没有总结 ； 
-现在基于以前【Doutu-master】项目抽取首页部分模块 编写了一个MVP+Rxjava2+Retrofit2+Dagger2 框架结合Demo 
+现在基于以前【Doutu-master】项目抽取首页部分模块编写了一个MVP+Rxjava2+Retrofit2+Dagger2 框架结合Demo 
 
 **文件夹分类**
 * MVP+Dagger2_test              ---MVP+Dagger2结合使用的demo
