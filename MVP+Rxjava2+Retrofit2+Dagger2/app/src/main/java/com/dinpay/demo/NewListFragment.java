@@ -47,8 +47,8 @@ public class NewListFragment extends BaseFragment<NewsListPresenter> implements 
 
     @Inject
     UilImagePresenter uilImagePresenter;
-    @Inject
-    NewsListPresenter newsListPresenter;
+//    @Inject
+//    NewsListPresenter newsListPresenter;
     int time = 0;
 
 
@@ -64,11 +64,11 @@ public class NewListFragment extends BaseFragment<NewsListPresenter> implements 
         mPresenter.getNewsList(hotPage);
     }
 
-    @Override
-    public NewsListPresenter createPresenter() {
-       // return new NewsListPresenter();
-        return newsListPresenter;
-    }
+//    @Override
+//    public NewsListPresenter createPresenter() {
+//       // return new NewsListPresenter();
+//        return newsListPresenter;
+//    }
 
 
 
