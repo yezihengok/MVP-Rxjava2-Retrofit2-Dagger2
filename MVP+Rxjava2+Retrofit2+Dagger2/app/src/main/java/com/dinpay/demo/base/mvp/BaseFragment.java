@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import javax.inject.Inject;
+
 import dagger.android.support.AndroidSupportInjection;
 
 /**
@@ -19,6 +21,7 @@ import dagger.android.support.AndroidSupportInjection;
 public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements BaseView {
     private View parentView;
     protected FragmentActivity activity;
+    @Inject
     public P mPresenter;
 
 
@@ -27,7 +30,10 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         //AndroidInjection.inject(this);
         AndroidSupportInjection.inject(this);//diagger2(android.support.v4.app.Fragment 使用AndroidSupportInjection)
         super.onCreate(savedInstanceState);
-        mPresenter = createPresenter();//创建presenter
+
+
+        //    @Inject后可以不用每个Fragment创建了  ，前提是每个Presenter类  里@Inject要注解自己
+      //  mPresenter = createPresenter();//创建presenter
     }
 
     @Override
@@ -51,7 +57,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     public abstract int getLayoutResId();
     //初始化views
     public abstract void initData(Bundle state,View parentView);
-    public abstract P createPresenter();
+   // public abstract P createPresenter();
 
     @Override
     public void onDestroy() {
