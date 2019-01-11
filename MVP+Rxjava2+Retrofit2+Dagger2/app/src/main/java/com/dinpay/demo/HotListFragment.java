@@ -49,8 +49,8 @@ public class HotListFragment extends BaseFragment<HotListPresenter> implements H
 
     @Inject
     UilImagePresenter uilImagePresenter;
-    @Inject
-    HotListPresenter hotListPresenter;
+//    @Inject
+//    HotListPresenter hotListPresenter;
     int time = 0;
 
     @Override
@@ -65,10 +65,10 @@ public class HotListFragment extends BaseFragment<HotListPresenter> implements H
         mPresenter.gethotList(hotPage);
     }
 
-    @Override
-    public HotListPresenter createPresenter() {
-        return hotListPresenter;
-    }
+//    @Override
+//    public HotListPresenter createPresenter() {
+//        return hotListPresenter;
+//    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
